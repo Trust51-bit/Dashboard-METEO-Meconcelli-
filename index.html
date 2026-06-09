@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Meteo Meconcelli</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">Dashboard Meteo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Apri menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="meteo.html">Meteo attuale</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="previsioni.html">Previsioni</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container hero-content">
+            <p class="text-uppercase fw-semibold small mb-3">Open-Meteo Forecast API</p>
+            <h1 class="fw-bold mb-3">Che tempo fa nelle citta piu interessanti?</h1>
+            <p class="lead mb-0">Una piccola dashboard per controllare meteo attuale e previsioni senza perdersi tra mille schermate. Poche informazioni, messe bene, con uno stile semplice da leggere anche al volo.</p>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <section class="row g-4 align-items-start mb-5">
+            <div class="col-lg-8">
+                <article class="article-card bg-white p-4 p-md-5 shadow-sm">
+                    <h2 class="h1 fw-bold mb-3">Il meteo, ma raccontato in modo semplice</h2>
+                    <p>Prima di uscire, di solito, basta una domanda: serve l'ombrello o posso rischiare? Questa dashboard nasce proprio da qui. Niente grafici complicati, niente pagine pesanti da interpretare. Solo una panoramica chiara su Firenze, Roma, Milano, Parigi e Tokyo.</p>
+                    <p>Firenze puo sembrare tranquilla al mattino e cambiare faccia dopo pranzo. Roma spesso regala luce piena, pero una folata improvvisa non chiede permesso. Milano e pratica: se piove, meglio saperlo prima, perche il traffico non perdona. Parigi ha il suo fascino anche sotto un cielo grigio. Tokyo, invece, corre veloce e il meteo diventa una specie di bussola quotidiana.</p>
+                    <p>Il bello del progetto e che i dati arrivano da Open-Meteo, un servizio gratuito e comodo da usare. Inserisci latitudine e longitudine, scegli quali valori leggere e ricevi temperature, vento, codici meteo e previsioni. Tutto pronto per essere mostrato in card, tabelle e sezioni ordinate.</p>
+                    <p>Insomma, questa homepage fa da ingresso al sito: presenta l'idea, mostra le citta disponibili e spiega quale API viene usata. Poi le altre pagine fanno il resto, caricando i dati veri e propri. Facile, pulito, utile.</p>
+                </article>
+            </div>
+
+            <div class="col-lg-4">
+                <aside class="api-card p-4 shadow-sm">
+                    <h2 class="h4 fw-bold">API usata nel progetto</h2>
+                    <p class="mb-2">Il sito usa la <strong>Open-Meteo Forecast API</strong> per recuperare meteo attuale e previsioni giornaliere.</p>
+                    <p class="mb-2"><strong>Endpoint base:</strong></p>
+                    <code class="d-block bg-white p-3 rounded text-break">https://api.open-meteo.com/v1/forecast</code>
+                    <p class="mt-3 mb-0">I parametri principali sono coordinate della citta, temperatura, vento, codice meteo e fuso orario automatico.</p>
+                </aside>
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <div class="d-flex flex-column flex-md-row justify-content-between gap-3 align-items-md-end mb-4">
+                <div>
+                    <h2 class="fw-bold mb-1">Citta disponibili</h2>
+                    <p class="text-secondary mb-0">Cinque localita, cinque coordinate e immagini per orientarsi subito.</p>
+                </div>
+                <a class="btn btn-success" href="meteo.html">Guarda il meteo</a>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg">
+                    <article class="card city-card h-100 shadow-sm">
+                        <img src="assets/immagini/FIRENZE.webp" class="card-img-top" alt="Panorama di Firenze">
+                        <div class="card-body">
+                            <h3 class="h4 card-title">Firenze</h3>
+                            <p class="card-text">Latitudine 43.7696, longitudine 11.2558. Arte, colline e cielo da controllare prima di fare un giro in centro.</p>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-md-6 col-lg">
+                    <article class="card city-card h-100 shadow-sm">
+                        <img src="assets/immagini/Roma.jpg" class="card-img-top" alt="Vista di Roma">
+                        <div class="card-body">
+                            <h3 class="h4 card-title">Roma</h3>
+                            <p class="card-text">Latitudine 41.9028, longitudine 12.4964. Sole generoso, aria tiepida e qualche sorpresa da non sottovalutare.</p>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-md-6 col-lg">
+                    <article class="card city-card h-100 shadow-sm">
+                        <img src="assets/immagini/milano.jpg" class="card-img-top" alt="Skyline di Milano">
+                        <div class="card-body">
+                            <h3 class="h4 card-title">Milano</h3>
+                            <p class="card-text">Latitudine 45.4642, longitudine 9.1900. Ritmo alto, nuvole veloci e vento da tenere sempre d'occhio.</p>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-md-6 col-lg">
+                    <article class="card city-card h-100 shadow-sm">
+                        <img src="assets/immagini/maxresdefault.jpg" class="card-img-top" alt="Torre Eiffel a Parigi">
+                        <div class="card-body">
+                            <h3 class="h4 card-title">Parigi</h3>
+                            <p class="card-text">Latitudine 48.8566, longitudine 2.3522. Elegante pure con le nuvole, ma una previsione resta una buona idea.</p>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-md-6 col-lg">
+                    <article class="card city-card h-100 shadow-sm">
+                        <img src="assets/immagini/tokyo.jpg" class="card-img-top" alt="Strade illuminate di Tokyo">
+                        <div class="card-body">
+                            <h3 class="h4 card-title">Tokyo</h3>
+                            <p class="card-text">Latitudine 35.6762, longitudine 139.6503. Una metropoli enorme, dove sapere che aria tira fa davvero comodo.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-white py-4">
+        <div class="container d-flex flex-column flex-md-row justify-content-between gap-2">
+            <p class="mb-0">Autore: Simone Fanelli</p>
+            <a class="link-light" href="https://github.com/Trust51-bit/Dashboard-METEO-Meconcelli-" target="_blank" rel="noopener">Repository GitHub</a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
