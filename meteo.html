@@ -10,7 +10,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">Dashboard Meteo</a>
+            <a class="navbar-brand fw-bold" href="index.html">Meteo Meconcelli</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Apri menu">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -21,7 +21,7 @@
                         <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="meteo.html">Meteo attuale</a>
+                        <a class="nav-link active" aria-current="page" href="meteo.html">Situazione live</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="previsioni.html">Previsioni</a>
@@ -33,16 +33,16 @@
 
     <header class="py-5 bg-light border-bottom">
         <div class="container">
-            <p class="text-uppercase text-success fw-semibold small mb-2">Dati aggiornati da Open-Meteo</p>
-            <h1 class="display-5 fw-bold">Meteo attuale</h1>
-            <p class="lead text-secondary mb-0">Qui trovi temperatura, vento e condizione del momento. Lo script riempie le card in automatico, senza dover scrivere i dati a mano.</p>
+            <p class="text-uppercase text-success fw-semibold small mb-2">Lettura in tempo reale</p>
+            <h1 class="display-5 fw-bold">Com'e fuori adesso</h1>
+            <p class="lead text-secondary mb-0">Questa pagina raccoglie temperatura, vento e descrizione del cielo. JavaScript prepara le card da solo, partendo dalle coordinate salvate nel progetto.</p>
         </div>
     </header>
 
     <main class="container my-5">
         <section class="mb-4">
-            <h2 class="h3 fw-bold">Situazione adesso</h2>
-            <p class="text-secondary">Le informazioni vengono lette dalla Forecast API usando le coordinate delle citta salvate in <code>script.js</code>.</p>
+            <h2 class="h3 fw-bold">Panoramica veloce</h2>
+            <p class="text-secondary">La chiamata parte dalla Forecast API e restituisce un quadro immediato per ogni localita scelta.</p>
         </section>
 
         <div id="weather-list" class="row g-4"></div>

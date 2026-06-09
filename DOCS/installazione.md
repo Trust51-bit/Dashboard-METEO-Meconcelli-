@@ -1,35 +1,35 @@
 # Installazione
 
-Questa dashboard non richiede installazioni complicate. Non ci sono pacchetti da scaricare e non serve configurare un backend: e un sito statico, quindi basta aprirlo nel browser.
+Non serve preparare un ambiente complicato. Il progetto e statico: niente server obbligatorio, niente database, nessuna configurazione lunga. Lo apri e inizi a provarlo.
 
-## Requisiti
+## Cosa avere prima
 
-- Un browser aggiornato, per esempio Chrome, Edge, Firefox o Safari.
-- Una connessione internet, per caricare Bootstrap, le immagini online e i dati di Open-Meteo.
-- Git, solo se vuoi clonare il progetto da GitHub.
+- Un browser recente, come Chrome, Edge, Firefox o Safari.
+- Connessione internet attiva, utile per Bootstrap e richieste Open-Meteo.
+- Git installato, solo nel caso tu voglia scaricare il repository da terminale.
 
-## Come aprire il sito
+## Apertura veloce
 
-Se hai gia la cartella sul computer, entra nel progetto e apri `index.html`.
+Se la cartella e gia sul computer, entra nel progetto e avvia `index.html` con doppio clic.
 
-Puoi farlo anche semplicemente con doppio clic sul file. Da li trovi i collegamenti verso `meteo.html` e `previsioni.html`.
+Da li puoi raggiungere la lettura live e il riepilogo dei prossimi giorni usando la navbar in alto.
 
-## Clonazione da GitHub
+## Scaricare il repository
 
-Per scaricare il progetto da repository, usa l'indirizzo GitHub del progetto:
+Per recuperare una copia da GitHub puoi lanciare:
 
 ```bash
 git clone https://github.com/Trust51-bit/Dashboard-METEO-Meconcelli-.git
 ```
 
-Poi entra nella cartella appena creata:
+Poi spostati nella cartella appena creata:
 
 ```bash
 cd Dashboard-METEO-Meconcelli-
 ```
 
-A quel punto apri `index.html` nel browser.
+Quando sei dentro, lancia `index.html` nel browser. Fine: non c'e altro da installare.
 
-## Nota sui dati meteo
+## Se i valori non compaiono
 
-Le pagine che mostrano dati reali usano una chiamata API. Se il computer non e collegato a internet, la struttura del sito si apre comunque, ma temperatura, vento e previsioni potrebbero non comparire.
+La struttura resta visibile anche offline, pero gradi, vento e riepilogo hanno bisogno della risposta di Open-Meteo. Se non compare nulla, controlla prima la connessione.

@@ -1,7 +1,5 @@
-// script.js - Dashboard Meteo con Open-Meteo
-// Pagine previste:
-// - meteo.html -> deve contenere: <div id="weather-list" class="row g-4"></div>
-// - previsioni.html -> deve contenere: <div id="forecast-table"></div>
+// Gestisce le chiamate a Open-Meteo e riempie le pagine interne.
+// meteo.html usa #weather-list, previsioni.html usa #forecast-table.
 const CITIES = [
     { name: "Firenze", latitude: 43.7696, longitude: 11.2558 },
     { name: "Roma", latitude: 41.9028, longitude: 12.4964 },
@@ -70,7 +68,7 @@ async function loadCurrentWeather() {
     const container = document.querySelector("#weather-list");
     container.innerHTML = `
 <div class="col-12">
-<div class="alert alert-info">Caricamento dati meteo...</div>
+<div class="alert alert-info">Sto recuperando le ultime misurazioni...</div>
 </div>
 `;
     try {
@@ -88,9 +86,9 @@ async function loadCurrentWeather() {
 <div class="card-body">
 <h2 class="h4 card-title">${city.name}</h2>
 <p class="display-6 mb-2">${current.temperature_2m} &deg;C</p>
-<p class="mb-1"><strong>Vento:</strong> ${current.wind_speed_10m} km/h</p>
-<p class="mb-1"><strong>Condizione:</strong> ${weatherCodeToText(current.weather_code)}</p>
-<p class="small text-body-secondary mb-0">Dato aggiornato: ${current.time}</p>
+<p class="mb-1"><strong>Aria:</strong> ${current.wind_speed_10m} km/h</p>
+<p class="mb-1"><strong>Cielo:</strong> ${weatherCodeToText(current.weather_code)}</p>
+<p class="small text-body-secondary mb-0">Rilevazione: ${current.time}</p>
 </div>
 </article>
 </div>
@@ -100,7 +98,7 @@ async function loadCurrentWeather() {
         container.innerHTML = `
 <div class="col-12">
 <div class="alert alert-danger" role="alert">
-Impossibile caricare i dati meteo. Dettaglio: ${error.message}
+Non riesco a leggere le informazioni ora. Dettaglio: ${error.message}
 </div>
 </div>
 `;
@@ -108,7 +106,7 @@ Impossibile caricare i dati meteo. Dettaglio: ${error.message}
 }
 async function loadForecast(city) {
     const container = document.querySelector("#forecast-table");
-    showAlert(container, `Caricamento previsioni per ${city.name}...`, "info");
+    showAlert(container, `Preparo la tabella per ${city.name}...`, "info");
     try {
         const data = await getJSON(buildWeatherUrl(city));
         const daily = data.daily;
@@ -121,14 +119,14 @@ async function loadForecast(city) {
 
 `).join("");
         container.innerHTML = `
-<h2 class="h4 mb-3">Previsioni per ${city.name}</h2>
+<h2 class="h4 mb-3">Prossimi giorni a ${city.name}</h2>
 <div class="table-responsive">
 <table class="table table-striped table-bordered align-middle">
 <thead class="table-dark">
 <tr>
 <th>Data</th>
-<th>Temperatura minima</th>
-<th>Temperatura massima</th>
+<th>Valore piu basso</th>
+<th>Picco previsto</th>
 </tr>
 </thead>
 <tbody>${rows}</tbody>
@@ -136,6 +134,6 @@ async function loadForecast(city) {
 </div>
 `;
     } catch (error) {
-        showAlert(container, `Impossibile caricare le previsioni. Dettaglio: ${error.message}`, "danger");
+        showAlert(container, `La tabella non e disponibile in questo momento. Dettaglio: ${error.message}`, "danger");
     }
 }

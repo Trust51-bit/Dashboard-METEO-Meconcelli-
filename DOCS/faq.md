@@ -1,29 +1,29 @@
 # FAQ
 
-## A cosa serve questa dashboard?
+## Che cosa fa questo progetto?
 
-Serve a visualizzare in modo semplice alcune informazioni meteo per Firenze, Roma, Milano, Parigi e Tokyo. Non vuole sostituire un portale professionale: e un esercizio pratico per usare HTML, CSS, Bootstrap, JavaScript e una API esterna.
+Raccoglie alcune indicazioni sul tempo per Firenze, Roma, Milano, Parigi e Tokyo. Non e un portale professionale: e un esercizio pratico per mettere insieme HTML, CSS, Bootstrap, JavaScript e una fonte esterna.
 
-## Devo registrarmi a Open-Meteo?
+## Serve un account su Open-Meteo?
 
-No. Open-Meteo permette di fare richieste senza chiave API, quindi il progetto puo funzionare direttamente dal browser.
+No. Open-Meteo accetta richieste libere, quindi il progetto puo interrogare l'endpoint direttamente dal browser.
 
-## Perche alcune immagini arrivano da internet?
+## Perche ci sono immagini delle citta?
 
-Per rendere la homepage piu piacevole e riconoscibile. Le immagini aiutano a capire subito di quale citta si sta parlando, invece di avere solo una lista di nomi e numeri.
+Per rendere la home meno fredda. Una foto aiuta a riconoscere subito il luogo e spezza la parte piu tecnica fatta di coordinate e numeri.
 
-## Cosa succede se l'API non risponde?
+## Cosa appare se la chiamata fallisce?
 
-Lo script mostra un messaggio di errore nella pagina. In pratica il sito resta aperto, ma i dati meteo non vengono caricati finche la chiamata non torna disponibile.
+Compare un avviso nella sezione interessata. Il layout non sparisce; semplicemente non arrivano le misurazioni finche la richiesta non torna a buon fine.
 
-## Posso aggiungere altre citta?
+## Come aggiungo un'altra localita?
 
-Si. Bisogna inserire nome, latitudine e longitudine nell'array `CITIES` dentro `script.js`. Dopo questo, lo script puo costruire l'URL e recuperare i dati anche per la nuova localita.
+Apri `script.js`, vai nell'array `CITIES` e inserisci un nuovo oggetto con nome, latitudine e longitudine. Dopo quel passaggio, la funzione che costruisce l'URL usera anche la nuova voce.
 
-## Perche nella pagina previsioni parte Firenze?
+## Per quale motivo le previsioni partono da Firenze?
 
-Nel codice la funzione delle previsioni usa come scelta iniziale la prima citta dell'elenco, cioe Firenze. E una base semplice, ma si puo migliorare aggiungendo un menu per scegliere la citta.
+Perche Firenze e il primo elemento dell'elenco. E una scelta semplice per l'esercizio; in futuro si potrebbe aggiungere un menu e lasciare all'utente la selezione.
 
-## Il sito funziona su telefono?
+## Si legge bene anche da smartphone?
 
-Si, la struttura usa Bootstrap e alcune regole CSS responsive. Le card e le sezioni si adattano allo schermo, cosi la lettura resta comoda anche su mobile.
+Si. Bootstrap gestisce buona parte della griglia e il CSS aggiunge qualche accorgimento per rendere schede, testi e spazi piu comodi sugli schermi piccoli.

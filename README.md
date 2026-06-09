@@ -1,20 +1,20 @@
 # Dashboard Meteo Meconcelli
 
-Questo progetto e un piccolo sito multipagina dedicato al meteo. L'idea e semplice: apri la pagina, scegli dove guardare e trovi subito le informazioni principali senza dover saltare da un sito all'altro.
+Questo lavoro e un piccolo sito multipagina pensato per leggere il tempo in modo rapido. Apri la home, scegli la sezione giusta e trovi subito cio che serve, senza girare tra schermate inutili.
 
-La dashboard usa i dati di Open-Meteo, quindi non serve una chiave API. Basta una connessione internet e il browser fa il resto.
+La parte interessante e che le misurazioni non sono scritte a mano. Arrivano da Open-Meteo, un servizio gratuito che risponde direttamente dal browser e non chiede nessuna chiave personale.
 
-## Cosa contiene il sito
+## Cosa trovi dentro
 
-- Una homepage con presentazione del progetto, API usata e citta disponibili.
-- Una pagina per il meteo attuale, caricata automaticamente con JavaScript.
-- Una pagina per le previsioni giornaliere.
-- Uno stile personalizzato in `style.css`, costruito sopra Bootstrap.
-- Una piccola documentazione nella cartella `DOCS`.
+- Una home con presentazione, sorgente dei dati e card dedicate alle localita scelte.
+- Una schermata live con gradi, aria e condizione del cielo.
+- Un riepilogo ordinato con minime e massime giornaliere.
+- Un foglio `style.css` per dare al sito un aspetto piu curato rispetto al Bootstrap base.
+- Tre documenti nella cartella `DOCS`, utili per spiegare installazione, API e dubbi frequenti.
 
-## Citta considerate
+## Localita seguite
 
-| Citta | Latitudine | Longitudine |
+| Nome | Latitudine | Longitudine |
 | --- | ---: | ---: |
 | Firenze | 43.7696 | 11.2558 |
 | Roma | 41.9028 | 12.4964 |
@@ -22,15 +22,15 @@ La dashboard usa i dati di Open-Meteo, quindi non serve una chiave API. Basta un
 | Parigi | 48.8566 | 2.3522 |
 | Tokyo | 35.6762 | 139.6503 |
 
-## Tecnologie usate
+## Strumenti usati
 
-- HTML per la struttura delle pagine.
-- CSS per rendere il sito piu curato e leggibile.
-- Bootstrap per navbar, griglie, card, alert e tabelle.
-- JavaScript per chiamare l'API e inserire i dati nella pagina.
-- Open-Meteo Forecast API per meteo attuale e previsioni.
+- HTML per costruire la struttura.
+- CSS per colori, spaziature, card e dettagli visivi.
+- Bootstrap per griglia, navbar, alert e tabella.
+- JavaScript per preparare gli URL, chiamare la API e inserire i risultati.
+- Open-Meteo Forecast API come fonte delle misurazioni.
 
-## API
+## API di riferimento
 
 Endpoint principale:
 
@@ -38,9 +38,9 @@ Endpoint principale:
 https://api.open-meteo.com/v1/forecast
 ```
 
-Nel progetto vengono richiesti temperatura, vento, codice meteo e temperature minime/massime giornaliere. I dettagli sono spiegati meglio in `DOCS/api.md`.
+Nel codice vengono richiesti gradi, velocita dell'aria, codice del cielo e estremi giornalieri. La spiegazione piu tecnica sta in `DOCS/api.md`.
 
-## Struttura del progetto
+## Cartelle e file
 
 ```text
 Dashboard-METEO-Meconcelli-/
@@ -60,4 +60,4 @@ Dashboard-METEO-Meconcelli-/
 
 ## Autore
 
-Realizzato da Simone Fanelli come esercizio su sito multipagina, API esterna e documentazione del progetto.
+Realizzato da Simone Fanelli per esercitarsi con sito multipagina, Bootstrap, JavaScript, chiamate API e documentazione del progetto.

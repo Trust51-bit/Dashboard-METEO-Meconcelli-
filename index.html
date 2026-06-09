@@ -10,7 +10,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">Dashboard Meteo</a>
+            <a class="navbar-brand fw-bold" href="index.html">Meteo Meconcelli</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Apri menu">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -21,7 +21,7 @@
                         <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="meteo.html">Meteo attuale</a>
+                        <a class="nav-link" href="meteo.html">Situazione live</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="previsioni.html">Previsioni</a>
@@ -34,8 +34,8 @@
     <header class="hero">
         <div class="container hero-content">
             <p class="text-uppercase fw-semibold small mb-3">Open-Meteo Forecast API</p>
-            <h1 class="fw-bold mb-3">Che tempo fa nelle citta piu interessanti?</h1>
-            <p class="lead mb-0">Una piccola dashboard per controllare meteo attuale e previsioni senza perdersi tra mille schermate. Poche informazioni, messe bene, con uno stile semplice da leggere anche al volo.</p>
+            <h1 class="fw-bold mb-3">Uno sguardo al cielo, prima di partire</h1>
+            <p class="lead mb-0">Cinque luoghi, qualche dato essenziale e una pagina che non fa perdere tempo. Apri, leggi, capisci subito se conviene portare gli occhiali da sole o infilare un ombrello nello zaino.</p>
         </div>
     </header>
 
@@ -43,21 +43,21 @@
         <section class="row g-4 align-items-start mb-5">
             <div class="col-lg-8">
                 <article class="article-card bg-white p-4 p-md-5 shadow-sm">
-                    <h2 class="h1 fw-bold mb-3">Il meteo, ma raccontato in modo semplice</h2>
-                    <p>Prima di uscire, di solito, basta una domanda: serve l'ombrello o posso rischiare? Questa dashboard nasce proprio da qui. Niente grafici complicati, niente pagine pesanti da interpretare. Solo una panoramica chiara su Firenze, Roma, Milano, Parigi e Tokyo.</p>
-                    <p>Firenze puo sembrare tranquilla al mattino e cambiare faccia dopo pranzo. Roma spesso regala luce piena, pero una folata improvvisa non chiede permesso. Milano e pratica: se piove, meglio saperlo prima, perche il traffico non perdona. Parigi ha il suo fascino anche sotto un cielo grigio. Tokyo, invece, corre veloce e il meteo diventa una specie di bussola quotidiana.</p>
-                    <p>Il bello del progetto e che i dati arrivano da Open-Meteo, un servizio gratuito e comodo da usare. Inserisci latitudine e longitudine, scegli quali valori leggere e ricevi temperature, vento, codici meteo e previsioni. Tutto pronto per essere mostrato in card, tabelle e sezioni ordinate.</p>
-                    <p>Insomma, questa homepage fa da ingresso al sito: presenta l'idea, mostra le citta disponibili e spiega quale API viene usata. Poi le altre pagine fanno il resto, caricando i dati veri e propri. Facile, pulito, utile.</p>
+                    <h2 class="h1 fw-bold mb-3">Una mini guida per non farsi sorprendere</h2>
+                    <p>Prima di uscire capita sempre quella domanda veloce: mi copro o vado leggero? Da questa scena abbastanza normale nasce il progetto. Non ci sono grafici da decifrare ne pannelli pieni di numeri. C'e una panoramica pulita, pensata per dare subito l'idea della giornata.</p>
+                    <p>Firenze al mattino puo sembrare calma, poi cambia tono dopo pranzo. Roma spesso illumina tutto, ma ogni tanto piazza una folata quando meno te lo aspetti. Milano e piu sbrigativa: se arriva pioggia, meglio saperlo prima. Parigi resta elegante pure sotto un cielo color zinco. Tokyo, invece, corre a un altro ritmo e avere un riferimento rapido diventa quasi indispensabile.</p>
+                    <p>Dietro le quinte lavora Open-Meteo, un servizio gratuito che restituisce le informazioni in formato JSON. Si passano latitudine e longitudine, si scelgono i valori utili e il browser riceve temperatura, vento, descrizione del cielo e andamento dei prossimi giorni.</p>
+                    <p>La home fa da porta d'ingresso: racconta l'idea, presenta le localita scelte e indica la sorgente dei dati. Le sezioni successive entrano nel vivo. Una mostra la situazione del momento. L'altra organizza le previsioni in tabella. Fine, senza fronzoli.</p>
                 </article>
             </div>
 
             <div class="col-lg-4">
                 <aside class="api-card p-4 shadow-sm">
-                    <h2 class="h4 fw-bold">API usata nel progetto</h2>
-                    <p class="mb-2">Il sito usa la <strong>Open-Meteo Forecast API</strong> per recuperare meteo attuale e previsioni giornaliere.</p>
+                    <h2 class="h4 fw-bold">Da dove arrivano i valori</h2>
+                    <p class="mb-2">Il progetto interroga la <strong>Open-Meteo Forecast API</strong> per leggere temperatura, vento e andamento giornaliero.</p>
                     <p class="mb-2"><strong>Endpoint base:</strong></p>
                     <code class="d-block bg-white p-3 rounded text-break">https://api.open-meteo.com/v1/forecast</code>
-                    <p class="mt-3 mb-0">I parametri principali sono coordinate della citta, temperatura, vento, codice meteo e fuso orario automatico.</p>
+                    <p class="mt-3 mb-0">La richiesta usa coordinate geografiche, campi selezionati e fuso orario automatico.</p>
                 </aside>
             </div>
         </section>
@@ -65,10 +65,10 @@
         <section class="mb-5">
             <div class="d-flex flex-column flex-md-row justify-content-between gap-3 align-items-md-end mb-4">
                 <div>
-                    <h2 class="fw-bold mb-1">Citta disponibili</h2>
-                    <p class="text-secondary mb-0">Cinque localita, cinque coordinate e immagini per orientarsi subito.</p>
+                    <h2 class="fw-bold mb-1">Tappe monitorate</h2>
+                    <p class="text-secondary mb-0">Ogni card unisce immagine, posizione e una frase per riconoscere subito il posto.</p>
                 </div>
-                <a class="btn btn-success" href="meteo.html">Guarda il meteo</a>
+                <a class="btn btn-success" href="meteo.html">Apri situazione live</a>
             </div>
 
             <div class="row g-4">
@@ -77,7 +77,7 @@
                         <img src="assets/immagini/FIRENZE.webp" class="card-img-top" alt="Panorama di Firenze">
                         <div class="card-body">
                             <h3 class="h4 card-title">Firenze</h3>
-                            <p class="card-text">Latitudine 43.7696, longitudine 11.2558. Arte, colline e cielo da controllare prima di fare un giro in centro.</p>
+                            <p class="card-text">43.7696, 11.2558. Una passeggiata tra arte e colline merita sempre un'occhiata al cielo.</p>
                         </div>
                     </article>
                 </div>
@@ -87,7 +87,7 @@
                         <img src="assets/immagini/Roma.jpg" class="card-img-top" alt="Vista di Roma">
                         <div class="card-body">
                             <h3 class="h4 card-title">Roma</h3>
-                            <p class="card-text">Latitudine 41.9028, longitudine 12.4964. Sole generoso, aria tiepida e qualche sorpresa da non sottovalutare.</p>
+                            <p class="card-text">41.9028, 12.4964. Luce forte, strade vive e qualche cambio d'aria da prendere sul serio.</p>
                         </div>
                     </article>
                 </div>
@@ -97,7 +97,7 @@
                         <img src="assets/immagini/milano.jpg" class="card-img-top" alt="Skyline di Milano">
                         <div class="card-body">
                             <h3 class="h4 card-title">Milano</h3>
-                            <p class="card-text">Latitudine 45.4642, longitudine 9.1900. Ritmo alto, nuvole veloci e vento da tenere sempre d'occhio.</p>
+                            <p class="card-text">45.4642, 9.1900. Ritmi veloci, nuvole basse e giornate che chiedono un minimo di anticipo.</p>
                         </div>
                     </article>
                 </div>
@@ -107,7 +107,7 @@
                         <img src="assets/immagini/maxresdefault.jpg" class="card-img-top" alt="Torre Eiffel a Parigi">
                         <div class="card-body">
                             <h3 class="h4 card-title">Parigi</h3>
-                            <p class="card-text">Latitudine 48.8566, longitudine 2.3522. Elegante pure con le nuvole, ma una previsione resta una buona idea.</p>
+                            <p class="card-text">48.8566, 2.3522. Bella anche con il grigio, pero sapere cosa arriva aiuta parecchio.</p>
                         </div>
                     </article>
                 </div>
@@ -117,7 +117,7 @@
                         <img src="assets/immagini/tokyo.jpg" class="card-img-top" alt="Strade illuminate di Tokyo">
                         <div class="card-body">
                             <h3 class="h4 card-title">Tokyo</h3>
-                            <p class="card-text">Latitudine 35.6762, longitudine 139.6503. Una metropoli enorme, dove sapere che aria tira fa davvero comodo.</p>
+                            <p class="card-text">35.6762, 139.6503. Enorme, luminosa, frenetica: controllare l'aria del giorno qui non e un dettaglio.</p>
                         </div>
                     </article>
                 </div>
