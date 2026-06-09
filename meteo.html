@@ -33,19 +33,70 @@
 
     <header class="py-5 bg-light border-bottom">
         <div class="container">
-            <p class="text-uppercase text-success fw-semibold small mb-2">Lettura in tempo reale</p>
-            <h1 class="display-5 fw-bold">Com'e fuori adesso</h1>
-            <p class="lead text-secondary mb-0">Questa pagina raccoglie temperatura, vento e descrizione del cielo. JavaScript prepara le card da solo, partendo dalle coordinate salvate nel progetto.</p>
+            <p class="text-uppercase text-success fw-semibold small mb-2">Occhiata rapida al cielo</p>
+            <h1 class="display-5 fw-bold">Com'è fuori proprio adesso</h1>
+            <p class="lead text-secondary mb-0">Qui non c'è da interpretare troppo: guardi la città, leggi i gradi, controlli l'aria e ti fai subito un'idea. È la classica pagina da aprire prima di uscire, quando hai già le scarpe ai piedi.</p>
         </div>
     </header>
 
     <main class="container my-5">
+        <section class="row g-4 align-items-start mb-5">
+            <div class="col-lg-8">
+                <h2 class="h3 fw-bold">Una lettura al volo, senza fare giri strani</h2>
+                <p class="text-secondary mb-3">Questa sezione prende le coordinate salvate nel progetto e chiede a Open-Meteo la situazione del momento. Il risultato viene trasformato in card semplici: nome della località, temperatura, vento e condizione del cielo.</p>
+                <p class="mb-0">Il bello è che non devi aggiornare niente a mano. Se la API risponde, la pagina si riempie da sola. Se qualcosa non va, compare un avviso chiaro. Pochi elementi, ma messi dove servono.</p>
+            </div>
+
+            <aside class="col-lg-4">
+                <div class="api-card p-4 shadow-sm">
+                    <h2 class="h5 fw-bold">Come leggerla</h2>
+                    <p class="mb-2">Se il vento sale, magari conviene portare una giacca leggera.</p>
+                    <p class="mb-2">Se il cielo sembra coperto, meglio non fidarsi troppo della finestra.</p>
+                    <p class="mb-0">Se vedi sole pieno, goditelo. Però controllare due secondi prima resta una buona abitudine.</p>
+                </div>
+            </aside>
+        </section>
+
         <section class="mb-4">
-            <h2 class="h3 fw-bold">Panoramica veloce</h2>
-            <p class="text-secondary">La chiamata parte dalla Forecast API e restituisce un quadro immediato per ogni localita scelta.</p>
+            <h2 class="h3 fw-bold">Le card aggiornate</h2>
+            <p class="text-secondary">Ogni riquadro nasce da una chiamata diversa. Firenze, Roma, Milano, Parigi e Tokyo entrano in pagina una dopo l'altra, con informazioni brevi e facili da confrontare.</p>
         </section>
 
         <div id="weather-list" class="row g-4"></div>
+
+        <section class="row g-4 mt-5">
+            <div class="col-md-4">
+                <article class="card h-100 shadow-sm city-card">
+                    <div class="card-body">
+                        <h2 class="h5 card-title">Prima di muoverti</h2>
+                        <p class="card-text">Dai un'occhiata ai gradi. Sembra banale, ma spesso basta quello per evitare una scelta sbagliata.</p>
+                    </div>
+                </article>
+            </div>
+
+            <div class="col-md-4">
+                <article class="card h-100 shadow-sm city-card">
+                    <div class="card-body">
+                        <h2 class="h5 card-title">Occhio all'aria</h2>
+                        <p class="card-text">Il vento cambia la percezione della giornata. A volte non fa freddissimo, ma fuori si sente tutto diverso.</p>
+                    </div>
+                </article>
+            </div>
+
+            <div class="col-md-4">
+                <article class="card h-100 shadow-sm city-card">
+                    <div class="card-body">
+                        <h2 class="h5 card-title">Cielo e umore</h2>
+                        <p class="card-text">Sole, nuvole o pioggia non sono solo numeri: decidono il ritmo della passeggiata, del viaggio e perfino della pausa caffè.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="mt-5 p-4 bg-white border rounded shadow-sm">
+            <h2 class="h4 fw-bold">Piccola nota da fine pagina</h2>
+            <p class="mb-0 text-secondary">Questa non vuole essere una stazione professionale. È una dashboard leggera, fatta per consultare il tempo in modo rapido e capire subito che aria tira nelle città scelte.</p>
+        </section>
     </main>
 
     <footer class="text-white py-4">

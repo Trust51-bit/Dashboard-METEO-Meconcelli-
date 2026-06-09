@@ -7,31 +7,21 @@ const CITIES = [
     { name: "Parigi", latitude: 48.8566, longitude: 2.3522 },
     { name: "Tokyo", latitude: 35.6762, longitude: 139.6503 }
 ];
+
 document.addEventListener("DOMContentLoaded", () => {
     if (document.querySelector("#weather-list")) {
         loadCurrentWeather();
     }
+
     if (document.querySelector("#forecast-table")) {
         loadForecast(CITIES[0]);
     }
 });
+
 function buildWeatherUrl(city) {
-    const params = new URLSearchParams({
-        latitude: city.latitude,
-        longitude: city.longitude,
-        current: "temperature_2m,wind_speed_10m,weather_code",
-        daily: "temperature_2m_max,temperature_2m_min",
-        timezone: "auto"
-    });
-    return `https://api.open-meteo.com/v1/forecast?${params.toString()}`;
+    return `https://api.open-meteo.com/v1/forecast?latitude=${city.latitude}&longitude=${city.longitude}&current=temperature_2m,wind_speed_10m,weather_code&daily=temperature_2m_max,temperature_2m_min&timezone=auto`;
 }
-async function getJSON(url) {
-    const response = await fetch(url);
-    if (!response.ok) {
-        throw new Error(`Errore HTTP: ${response.status}`);
-    }
-    return await response.json();
-}
+
 function weatherCodeToText(code) {
     const codes = {
         0: "Cielo sereno",
@@ -43,7 +33,6 @@ function weatherCodeToText(code) {
         51: "Pioviggine leggera",
         53: "Pioviggine moderata",
         55: "Pioviggine intensa",
-
         61: "Pioggia leggera",
         63: "Pioggia moderata",
         65: "Pioggia intensa",
@@ -55,8 +44,10 @@ function weatherCodeToText(code) {
         82: "Rovesci intensi",
         95: "Temporale"
     };
+
     return codes[code] || `Codice meteo ${code}`;
 }
+
 function showAlert(container, message, type = "warning") {
     container.innerHTML = `
 <div class="alert alert-${type}" role="alert">
@@ -64,23 +55,37 @@ ${message}
 </div>
 `;
 }
-async function loadCurrentWeather() {
+
+function loadCurrentWeather() {
     const container = document.querySelector("#weather-list");
+
     container.innerHTML = `
 <div class="col-12">
 <div class="alert alert-info">Sto recuperando le ultime misurazioni...</div>
 </div>
 `;
-    try {
-        const results = await Promise.all(
-            CITIES.map(async city => {
-                const data = await getJSON(buildWeatherUrl(city));
-                return { city, data };
+
+    let loadedCards = 0;
+
+    CITIES.forEach(city => {
+        fetch(buildWeatherUrl(city))
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Errore HTTP: ${response.status}`);
+                }
+
+                return response.json();
             })
-        );
-        container.innerHTML = results.map(({ city, data }) => {
-            const current = data.current;
-            return `
+            .then(data => {
+                const current = data.current;
+
+                if (loadedCards === 0) {
+                    container.innerHTML = "";
+                }
+
+                loadedCards++;
+
+                container.innerHTML += `
 <div class="col-md-4">
 <article class="card h-100 shadow-sm">
 <div class="card-body">
@@ -93,39 +98,60 @@ async function loadCurrentWeather() {
 </article>
 </div>
 `;
-        }).join("");
-    } catch (error) {
-        container.innerHTML = `
+            })
+            .catch(error => {
+                if (loadedCards === 0) {
+                    container.innerHTML = "";
+                }
+
+                loadedCards++;
+
+                container.innerHTML += `
 <div class="col-12">
 <div class="alert alert-danger" role="alert">
-Non riesco a leggere le informazioni ora. Dettaglio: ${error.message}
+Non riesco a leggere ${city.name}. Dettaglio: ${error.message}
 </div>
 </div>
 `;
-    }
+            });
+    });
 }
-async function loadForecast(city) {
+
+function loadForecast(city) {
     const container = document.querySelector("#forecast-table");
+
     showAlert(container, `Preparo la tabella per ${city.name}...`, "info");
-    try {
-        const data = await getJSON(buildWeatherUrl(city));
-        const daily = data.daily;
-        const rows = daily.time.map((day, index) => `
+
+    fetch(buildWeatherUrl(city))
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Errore HTTP: ${response.status}`);
+            }
+
+            return response.json();
+        })
+        .then(data => {
+            const daily = data.daily;
+            let rows = "";
+
+            daily.time.forEach((day, index) => {
+                rows += `
 <tr>
 <td>${day}</td>
 <td>${daily.temperature_2m_min[index]} &deg;C</td>
 <td>${daily.temperature_2m_max[index]} &deg;C</td>
 </tr>
+`;
+            });
 
-`).join("");
-        container.innerHTML = `
+            container.innerHTML = `
 <h2 class="h4 mb-3">Prossimi giorni a ${city.name}</h2>
 <div class="table-responsive">
 <table class="table table-striped table-bordered align-middle">
 <thead class="table-dark">
 <tr>
 <th>Data</th>
-<th>Valore piu basso</th>
+<th>Valore più basso</th>
 <th>Picco previsto</th>
 </tr>
 </thead>
@@ -133,7 +159,8 @@ async function loadForecast(city) {
 </table>
 </div>
 `;
-    } catch (error) {
-        showAlert(container, `La tabella non e disponibile in questo momento. Dettaglio: ${error.message}`, "danger");
-    }
+        })
+        .catch(error => {
+            showAlert(container, `La tabella non è disponibile in questo momento. Dettaglio: ${error.message}`, "danger");
+        });
 }

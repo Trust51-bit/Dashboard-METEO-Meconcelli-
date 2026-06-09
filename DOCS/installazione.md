@@ -1,6 +1,6 @@
 # Installazione
 
-Non serve preparare un ambiente complicato. Il progetto e statico: niente server obbligatorio, niente database, nessuna configurazione lunga. Lo apri e inizi a provarlo.
+Non serve preparare un ambiente complicato. Il progetto è statico: niente server obbligatorio, niente database, nessuna configurazione lunga. Lo apri e inizi a provarlo.
 
 ## Cosa avere prima
 
@@ -10,9 +10,9 @@ Non serve preparare un ambiente complicato. Il progetto e statico: niente server
 
 ## Apertura veloce
 
-Se la cartella e gia sul computer, entra nel progetto e avvia `index.html` con doppio clic.
+Se la cartella è già sul computer, entra nel progetto e avvia `index.html` con doppio clic.
 
-Da li puoi raggiungere la lettura live e il riepilogo dei prossimi giorni usando la navbar in alto.
+Da lì puoi raggiungere la lettura live e il riepilogo dei prossimi giorni usando la navbar in alto.
 
 ## Scaricare il repository
 
@@ -28,8 +28,8 @@ Poi spostati nella cartella appena creata:
 cd Dashboard-METEO-Meconcelli-
 ```
 
-Quando sei dentro, lancia `index.html` nel browser. Fine: non c'e altro da installare.
+Quando sei dentro, lancia `index.html` nel browser. Fine: non c'è altro da installare.
 
 ## Se i valori non compaiono
 
-La struttura resta visibile anche offline, pero gradi, vento e riepilogo hanno bisogno della risposta di Open-Meteo. Se non compare nulla, controlla prima la connessione.
+La struttura resta visibile anche offline, però gradi, vento e riepilogo hanno bisogno della risposta di Open-Meteo. Se non compare nulla, controlla prima la connessione.

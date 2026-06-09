@@ -1,18 +1,18 @@
 # Dashboard Meteo Meconcelli
 
-Questo lavoro e un piccolo sito multipagina pensato per leggere il tempo in modo rapido. Apri la home, scegli la sezione giusta e trovi subito cio che serve, senza girare tra schermate inutili.
+Questo lavoro è un piccolo sito multipagina pensato per leggere il tempo in modo rapido. Apri la home, scegli la sezione giusta e trovi subito ciò che serve, senza girare tra schermate inutili.
 
-La parte interessante e che le misurazioni non sono scritte a mano. Arrivano da Open-Meteo, un servizio gratuito che risponde direttamente dal browser e non chiede nessuna chiave personale.
+La parte interessante è che le misurazioni non sono scritte a mano. Arrivano da Open-Meteo, un servizio gratuito che risponde direttamente dal browser e non chiede nessuna chiave personale.
 
 ## Cosa trovi dentro
 
-- Una home con presentazione, sorgente dei dati e card dedicate alle localita scelte.
+- Una home con presentazione, sorgente dei dati e card dedicate alle località scelte.
 - Una schermata live con gradi, aria e condizione del cielo.
 - Un riepilogo ordinato con minime e massime giornaliere.
-- Un foglio `style.css` per dare al sito un aspetto piu curato rispetto al Bootstrap base.
+- Un foglio `style.css` per dare al sito un aspetto più curato rispetto al Bootstrap base.
 - Tre documenti nella cartella `DOCS`, utili per spiegare installazione, API e dubbi frequenti.
 
-## Localita seguite
+## Località seguite
 
 | Nome | Latitudine | Longitudine |
 | --- | ---: | ---: |
@@ -38,7 +38,7 @@ Endpoint principale:
 https://api.open-meteo.com/v1/forecast
 ```
 
-Nel codice vengono richiesti gradi, velocita dell'aria, codice del cielo e estremi giornalieri. La spiegazione piu tecnica sta in `DOCS/api.md`.
+Nel codice vengono richiesti gradi, velocità dell'aria, codice del cielo e estremi giornalieri. La spiegazione più tecnica sta in `DOCS/api.md`.
 
 ## Cartelle e file
 
